@@ -22,27 +22,27 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="addGame.php">Spellen</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php">Mijn spellen</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php include "include/nav.html" ?>
     <div class="container">
-        <form action="send.php?id=<?php echo $id?>" method="post">
+        <form action="send.php?id=<?php echo $id; ?>" method="post">
+            <input type="hidden" name="id" value="<?php echo $id?>">
             <div class="form-group mt-4">
-              <label for="text">Voeg een instructeur toe</label>
-              <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+              <label for="text">Voeg een instructeur toe:</label>
+              <input type="text" name="instructor" class="form-control w-50" pattern="[^' ']+" required>
             </div>
+            <div class="form-group mt-5">
+            <label for="names">Voeg hier de namen toe van de deelnemers:</label>
+            <?php for ($i = 1; $i <= $max_players; $i++){?>
+                <div class="form-group"></div>
+                <label for="player">Speler:</label>
+                    <input type="text" name="player[]" class name="form-control" id="player">
+                <?php } ?>
+            </div>
+            <div class="form-group">
+              <label for="time">Vul hier de tijd in:</label>
+              <input type="time" name="time" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Verzenden</button>
         </form>
     </div>
 </body>
