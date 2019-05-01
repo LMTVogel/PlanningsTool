@@ -41,7 +41,7 @@
         <td><?php echo $row[max_players]?> </td>
         <td><?php echo $row[play_minutes]?> </td>
         <td><?php echo $row[explain_minutes]?> </td>
-        <td><a href='edit.php?id=<?php echo $row[id]?>&max_players=<?php echo $row[max_players]?>'>Add</a></td>
+        <td><a href='move.php?id=<?php echo $row[id]?>&max_players=<?php echo $row[max_players]?>&name=<?php echo $row[name]?>'>Add</a></td>
     </tr>
         <?php }?>
   </tbody>

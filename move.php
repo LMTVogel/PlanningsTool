@@ -2,7 +2,8 @@
 
     include 'connect.php';
 
-    $id = $_GET[id];
+    $id = $_GET['id'];
+    $max_players = $_GET['max_players'];
 
     $sql = "SELECT * FROM `games` WHERE id=:id";
     $query = $conn->prepare($sql);
@@ -10,7 +11,7 @@
     $query->execute();
     $result = $query->fetch();
 
-    $sql = "insert into activeGames(id, name, min_players, max_players, play_minutes, explain_minutes) values(:id, :name, :min_players, :max_players, :play_minutes, :explain_minutes)";
+    $sql = "INSERT INTO activeGames(id, name, min_players, max_players, play_minutes, explain_minutes) VALUES(:id, :name, :min_players, :max_players, :play_minutes, :explain_minutes)";
 
     $query = $conn->prepare($sql);
     $query->bindParam(":id", $result[id]);
@@ -21,4 +22,4 @@
     $query->bindParam(":play_minutes", $result[play_minutes]);
     $query->execute();
 
-    header("location:index.php");
+    header("location:edit.php?id=$id&max_players=$max_players");

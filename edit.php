@@ -2,6 +2,7 @@
     include "connect.php";
 
     $id = $_GET[id];
+    $name = $_GET[name];
     $max_players = $_GET['max_players'];
 
     $sql = "SELECT * FROM `games` WHERE id=:id";
@@ -24,6 +25,7 @@
 <body>
     <?php include "include/nav.html" ?>
     <div class="container">
+        <p>Geselecteerd spel: <?php echo $name; ?> </p>
         <form action="send.php?id=<?php echo $id; ?>" method="post">
             <input type="hidden" name="id" value="<?php echo $id?>">
             <div class="form-group mt-4">
@@ -35,7 +37,7 @@
             <?php for ($i = 1; $i <= $max_players; $i++){?>
                 <div class="form-group"></div>
                 <label for="player">Speler:</label>
-                    <input type="text" name="player[]" class name="form-control" id="player">
+                    <input type="text" name="player[]" name="form-control">
                 <?php } ?>
             </div>
             <div class="form-group">
