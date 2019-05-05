@@ -3,7 +3,7 @@ include 'connect.php';
 
 $id = $_GET[id];
 
-$sql = 'SELECT * from AddedGames where id = :id';
+$sql = 'SELECT * from activeGames where id = :id';
 $query = $conn->prepare($sql);
 $query->bindParam(":id", $id);
 $query->execute();
@@ -18,13 +18,15 @@ $players = explode(", ", $result['players']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
     <?php include 'include/nav.html';?>
 
     <div class="container">
 	    <p>Geselecteerd spel: <?php echo $result['name']?> </p>
-        <form method="POST" action="/planningtool/edit.php">
+        <form method="POST" action="index.php">
         <input type="hidden" name="id" value="<?php echo $id?>">
         <div class="form-group">
             <label for="time">Pas hier de tijd aan:</label>
@@ -39,8 +41,8 @@ $players = explode(", ", $result['players']);
             <label for="player">Speler:</label>
                 <input type="text" name = "player[]" class name="form-control" id="player" value="<?php echo isset($players[$i]) ? $players[$i]:'' ;?>">
             <?php }?>
-        <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </body>
 </html>
