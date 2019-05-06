@@ -20,7 +20,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <script>
+        function confirm() {
+            alert('Het spel is toegevoegd.');
+        }
+    </script>
 </head>
 <body>
     <?php include "include/nav.html" ?>
@@ -44,7 +48,7 @@
               <label for="time">Vul hier de tijd in:</label>
               <input type="time" name="time" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary">Verzenden</button>
+            <button type="submit" class="btn btn-primary" onclick="confirm();">Verzenden</button>
         </form>
     </div>
 </body>
