@@ -48,7 +48,7 @@
         <td><a class= "btn btn-success" href='move.php?id=<?php echo $row[id]?>&max_players=<?php echo $row[max_players]?>&name=<?php echo $row[name]?>'><i class="fas fa-plus"></i></a></td>
     </tr>
         <?php }?>
-  </tbody>
+  </tbody >
 </table>
 </body>
 </html>
