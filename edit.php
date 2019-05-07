@@ -28,7 +28,7 @@
 </head>
 <body>
     <?php include "include/nav.html" ?>
-    
+
     <div class="container">
         <p>Geselecteerd spel: <?php echo $name; ?> </p>
         <form action="send.php?id=<?php echo $id; ?>" method="post">
