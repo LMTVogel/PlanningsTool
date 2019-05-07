@@ -48,7 +48,8 @@
         <td><?php echo $row[time]?> </td>
         <td><?php echo $row[play_minutes]?> </td>
         <td><?php echo $row[instructor]?> </td>
-        <td><a class="btn btn-info" href="editGame.php?id=<?php echo $row[id]?>"><i class="fas fa-edit"></i></a></td>
+        <td><a class="btn btn-warning" href="editGame.php?id=<?php echo $row[id]?>"><i class="fas fa-edit"></i></a></td>
+        <td><a class="btn btn-info" href="gameInfo.php?id=<?php echo $row['id']?>"><i class="fas fa-info-circle"></i></a></td>
         <td><a class="btn btn-danger" href='delete.php?id=<?php echo $row[id]?>' onclick="return validation();"><i class="fas fa-trash-alt"></i></a></td>
     </tr>
         <?php }?>
