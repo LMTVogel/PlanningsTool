@@ -4,6 +4,7 @@
 
     $id = $_GET['id'];
     $max_players = $_GET['max_players'];
+    $name = $_GET['name'];
 
     $sql = "SELECT * FROM `games` WHERE id=:id";
     $query = $conn->prepare($sql);
@@ -22,4 +23,4 @@
     $query->bindParam(":play_minutes", $result[play_minutes]);
     $query->execute();
 
-    header("location:edit.php?id=$id&max_players=$max_players");
+    header("location:edit.php?id=$id&max_players=$max_players&name=$name");
